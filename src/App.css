@@ -2,16 +2,19 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ui.card {
+  background-color: rgb(239, 217, 241) !important;
+  border-style: solid !important;
+  border-color: blueviolet  !important;
 }
+
+
+
+
 
 .App-header {
   background-color: #282c34;

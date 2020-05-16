@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import {gql, useQuery} from '@apollo/client' ;
 import {SaleIndicator} from './components/SaleIndicator';
-import Banksy from './components/Banksy'
+import Banksy from './components/Banksy';
+import { Popup} from 'semantic-ui-react'
 
 export const query = gql`
 query {
@@ -43,22 +44,41 @@ const andy = data.popular_artists.artists[2].name
   return (
     <section className="App">
     <h1>Belle's Personal Gallery</h1>
-    <div id="pablo">
-    <h3>{pablo}</h3>
-    {data.popular_artists.artists[0].artworks.map(work => (
-      <>
-      <h2>{work.title}</h2>
-      <h3>{work.price}</h3>
-      <h3>{work.is_for_sale && work.price === "" ? "Contact for Price" : null}</h3>
-      <SaleIndicator sale={work.is_for_sale}/>
-      <a href={`https://www.artsy.net/artwork/${work.id}`} target="_blank">View Details</a>
-      </>
-    ))}
-    </div>
 
-<Banksy />
-    </section>
-  );
-}
+    <div id="pablo">
+    <h2>{pablo}</h2>
+    
+    <div class="ui raised cards">
+    {data.popular_artists.artists[0].artworks.map(work => (
+      <Popup
+      content="Click to View Details"
+      position='top center'
+      trigger={
+      <a class="ui card" href={`https://www.artsy.net/artwork/${work.id}`} target="_blank">
+  <div class="content">
+    <div class="ui large header">{work.title}</div>
+    <SaleIndicator is_for_sale={work.is_for_sale}/>
+    <div class="description">{work.is_for_sale && work.price === "" ? "Contact for Price" : null}</div>
+    <div class="description">{work.price}</div>
+  </div>
+</a>
+    }/>   
+    ))} 
+     </div>
+    </div>
+    <Banksy />
+     </section>
+      );
+    }
+      // {/* <h2>{work.title}</h2>
+      // <h3>{work.price}</h3>
+      // <h3>{work.is_for_sale && work.price === "" ? "Contact for Price" : null}</h3>
+      // <SaleIndicator is_for_sale={work.is_for_sale}/>
+      // <a href={`https://www.artsy.net/artwork/${work.id}`} target="_blank">View Details</a>
+      // </>
+    
+  
+    
+
 
 export default App;
