@@ -27,7 +27,9 @@ query {
 
 function App() {
   const {loading, data} = useQuery(query)
-  if (loading) return <p>Loading....</p>
+  console.log(data)
+ 
+  if (loading) return <p>Loading Masterpieces...</p>
 console.log(data.popular_artists.artists[0].name)
 console.log(data.popular_artists.artists[0].artworks.map(work => work.image).map(image => image.image_url))
 // console.log(data.popular_artists.artists[0].artworks)
