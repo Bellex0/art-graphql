@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {gql, useQuery} from '@apollo/client' ;
-import {SaleIndicator} from './components/SaleIndicator';
+import {SaleIndicator, Circle} from './components/SaleIndicator';
 import Banksy from './components/Banksy';
 import { Popup} from 'semantic-ui-react'
 
@@ -34,7 +34,6 @@ console.log(data.popular_artists.artists[0].artworks.map(work => work.image).map
 
 const pablo = data.popular_artists.artists[0].name
 const banksy = data.popular_artists.artists[1].name
-const andy = data.popular_artists.artists[2].name
 
 // const contactPrice = (price, is_for_sale ) => {
 //   if (price === "" && is_for_sale === "true") {
@@ -42,8 +41,15 @@ const andy = data.popular_artists.artists[2].name
 //   }
 // }
   return (
+    <>
     <section className="App">
-    <h1>Belle's Personal Gallery</h1>
+    <h1>BP Art Galleria</h1>
+
+    <div id="sale-legend">
+      <h5>Legend</h5>
+      <Circle color="green" selected={ true}/><p>For Sale</p>
+      <Circle color="red" selected={true}/><p>Not For Sale</p>
+    </div>
 
     <div id="pablo">
     <h2>{pablo}</h2>
@@ -54,7 +60,7 @@ const andy = data.popular_artists.artists[2].name
       content="Click to View Details"
       position='top center'
       trigger={
-      <a class="ui card" href={`https://www.artsy.net/artwork/${work.id}`} target="_blank">
+      <a id="pablo-card" class="ui card" href={`https://www.artsy.net/artwork/${work.id}`} target="_blank">
   <div class="content">
     <div class="ui large header">{work.title}</div>
     <SaleIndicator is_for_sale={work.is_for_sale}/>
@@ -68,6 +74,12 @@ const andy = data.popular_artists.artists[2].name
     </div>
     <Banksy />
      </section>
+     
+     
+     <footer>
+     <h6> © BP Art Gallery 👩‍🎨</h6>
+   </footer>
+   </>
       );
     }
       // {/* <h2>{work.title}</h2>

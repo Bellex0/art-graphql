@@ -9,7 +9,7 @@ export const SaleIndicator = ({is_for_sale = false}) => (
   </>
 );
 
-const Circle = styled.div`
+export const Circle = styled.div`
   border-radius: 50%;
   background-color: ${({ color, selected }) =>
     selected ? color : "transparent"};

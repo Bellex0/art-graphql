@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { setContext } from 'apollo-link-context'
-import {ApolloClient, HttpLink, InMemoryCache, ApolloProvider, createHttpLink} from "@apollo/client"
+import {ApolloClient, HttpLink, InMemoryCache, ApolloProvider} from "@apollo/client"
 
 // const uri = "https://metaphysics-production.artsy.net/"
 
