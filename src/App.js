@@ -43,7 +43,7 @@ const banksy = data.popular_artists.artists[1].name
   return (
     <>
     <section className="App">
-    <h1>BP Art Galleria</h1>
+    <h1>BP Art Galleria 🎨</h1>
 
     <div id="sale-legend">
       <h5>Legend</h5>
@@ -77,7 +77,7 @@ const banksy = data.popular_artists.artists[1].name
      
      
      <footer>
-     <h6> © BP Art Gallery 👩‍🎨</h6>
+     <h6> © BP Art Galleria 👩‍🎨</h6>
    </footer>
    </>
       );

@@ -4,7 +4,6 @@ import styled from "styled-components";
 export const SaleIndicator = ({is_for_sale = false}) => (
   <>
     <Circle color="green" selected={is_for_sale === true} />
-    {/* <Circle color="yellow" selected={is_for_sale === true && price === ""} /> */}
     <Circle color="red" selected={is_for_sale === false} />
   </>
 );
